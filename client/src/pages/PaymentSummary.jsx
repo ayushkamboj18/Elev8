@@ -88,8 +88,7 @@ export default function PaymentSummary() {
   };
 
   //! creating a ticket ------------------------------
-  const createTicket = async (e) => {
-    e.preventDefault();
+  const createTicket = async () => {
 
     //! Validate contact number (should be 10 digits and not start with 0)
     const contactNo = ticketDetails.ticketDetails.contactNo;
@@ -108,10 +107,12 @@ export default function PaymentSummary() {
         `/tickets/check?userid=${ticketDetails.userid}&eventid=${ticketDetails.eventid}`
       );
 
-      if (existingTicketResponse.data.message) {
+      if (existingTicketResponse.data.message) {        
         Notiflix.Notify.failure("Oops Can't create duplicate tickets");
         return;
       }
+
+
 
       const qrCode = await generateQRCode(
         ticketDetails.ticketDetails.eventname,
@@ -158,6 +159,15 @@ export default function PaymentSummary() {
 
   const handlePayment = async () => {
     try {
+      const existingTicketResponse = await axios.get(
+        `/tickets/check?userid=${ticketDetails.userid}&eventid=${ticketDetails.eventid}`
+      );
+
+      if (existingTicketResponse.data.message) {        
+        Notiflix.Notify.failure("Oops Can't create duplicate tickets");
+        return;
+      }
+
       const orderResponse = await fetch(
         "http://localhost:4000/create-payment",
         {
