@@ -73,7 +73,8 @@ export default function TicketPage() {
       >
         {userTickets.map((ticket) => (
           <div key={ticket._id} className="relative group p-5">
-            <div className="h-56 mt-2 gap-1 p-5 mb-5 bg-gray-100 font-bold rounded-md relative">
+            {/* ticket */}
+            <div className="h-56 mt-2 gap-1 p-5 mb-5 font-bold rounded-md relative bg-blue-100 shadow-2xl hover:scale-110 transition-all duration-200">
               <button
                 onClick={() => deleteTicket(ticket._id)}
                 className="absolute cursor-pointer right-0 mr-2"
@@ -88,44 +89,44 @@ export default function TicketPage() {
                   <img
                     src={ticket.ticketDetails.qr}
                     alt="QRCode"
-                    className="aspect-square object-fill"
+                    className="aspect-square object-fill shadow-xl"
                   />
                 </div>
                 <div className="ml-6 grid grid-cols-2 gap-x-6 gap-y-2">
                   <div>
                     Event Name: <br />
-                    <span className="font-extrabold text-primarydark">
+                    <span className="font-bold text-primarydark">
                       {ticket.ticketDetails.eventname.toUpperCase()}
                     </span>
                   </div>
                   <div>
                     Date & Time:<br />
-                    <span className="font-extrabold text-primarydark">
+                    <span className="font-semibold text-primarydark">
                       {ticket.ticketDetails.eventdate.toUpperCase().split("T")[0]}
                       , {ticket.ticketDetails.eventtime}
                     </span>
                   </div>
                   <div>
                     Name:{" "}
-                    <span className="font-extrabold text-primarydark">
+                    <span className="font-semibold text-primarydark">
                       {ticket.ticketDetails.name.toUpperCase()}
                     </span>
                   </div>
                   <div>
                     Price:{" "}
-                    <span className="font-extrabold text-primarydark">
+                    <span className="font-semibold text-primarydark">
                       Rs. {ticket.ticketDetails.ticketprice}
                     </span>
                   </div>
                   <div>
                     Email:{" "}
-                    <span className="font-extrabold text-primarydark">
+                    <span className="font-semibold text-primarydark">
                       {ticket.ticketDetails.email}
                     </span>
                   </div>
                   <div>
                     Ticket ID:<br />
-                    <span className="font-extrabold text-primarydark">
+                    <span className="font-semibold text-primarydark">
                       {ticket._id.toString().substring(0, 15)}
                     </span>
                   </div>

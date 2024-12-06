@@ -39,7 +39,7 @@ const MagicBanner = () => {
   }, [currentSlide]); // Re-run effect when currentSlide changes
 
   return (
-    <div className="mt-12 lg:mt-10 font-poppins">
+    <div className="mt-12 lg:mt-10 font-poppins bg-black">
       <div
         className={`carousel ${isNext ? "next" : ""} ${isPrev ? "prev" : ""}`}
       >
@@ -80,12 +80,15 @@ const MagicBanner = () => {
 
 
                 
+                  <Link to={"/aboutPage"}>
                   <button
                     type="button"
                     className="mt-14 text-black bg-white font-medium rounded-lg text-lg px-7 py-2 text-center  mb-2"
+                    
                   >
                     See More
                   </button>
+                  </Link>
                 
               </div>
             </div>

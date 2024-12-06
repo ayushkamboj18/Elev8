@@ -134,14 +134,14 @@ const Footer = () => {
               </p>
               <ul className="mt-8 space-y-4 text-sm">
                 <li onClick={scrollToTop}>
-                  <Link
+                  <Link to={"/wallet"}
                     className="text-gray-700 transition hover:text-gray-700/75"
                   >
                     Bookings
                   </Link>
                 </li>
                 <li onClick={scrollToTop}>
-                  <Link
+                  <Link to={"/aboutPage"}
                     
                     className="text-gray-700 transition hover:text-gray-700/75"
                   >
@@ -149,7 +149,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li onClick={scrollToTop}>
-                  <Link
+                  <Link to={"/aboutPage"}
                     className="text-gray-700 transition hover:text-gray-700/75"
                   >
                     Contact Us
